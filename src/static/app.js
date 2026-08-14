@@ -304,6 +304,54 @@ document.addEventListener("DOMContentLoaded", () => {
     return details.schedule;
   }
 
+  function buildShareContent(activityName, details) {
+    const schedule = formatSchedule(details);
+    const url = `${window.location.origin}/static/index.html`;
+    const title = `${activityName} at Mergington High School`;
+    const text = `Check out ${activityName} at Mergington High School! ${details.description} Schedule: ${schedule}.`;
+
+    return { title, text, url };
+  }
+
+  function buildShareLinks(activityName, details) {
+    const { title, text, url } = buildShareContent(activityName, details);
+    const encodedTitle = encodeURIComponent(title);
+    const encodedText = encodeURIComponent(text);
+    const encodedUrl = encodeURIComponent(url);
+
+    return {
+      x: `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`,
+      email: `mailto:?subject=${encodedTitle}&body=${encodedText}%0A%0A${encodedUrl}`,
+    };
+  }
+
+  async function shareActivity(activityName, details) {
+    const shareContent = buildShareContent(activityName, details);
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareContent);
+        showMessage("Activity shared successfully.", "success");
+        return;
+      } catch (error) {
+        if (error.name === "AbortError") {
+          return;
+        }
+      }
+    }
+
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(
+        `${shareContent.text} ${shareContent.url}`
+      );
+      showMessage("Share details copied so you can paste and send.", "info");
+      return;
+    }
+
+    showMessage("Use the social links to share this activity.", "info");
+  }
+
   // Function to determine activity type (this would ideally come from backend)
   function getActivityType(activityName, description) {
     const name = activityName.toLowerCase();
@@ -498,6 +546,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Format the schedule using the new helper function
     const formattedSchedule = formatSchedule(details);
+    const shareLinks = buildShareLinks(name, details);
 
     // Create activity tag
     const tagHtml = `
@@ -569,6 +618,15 @@ document.addEventListener("DOMContentLoaded", () => {
         `
         }
       </div>
+      <div class="share-actions">
+        <span class="share-label">Share:</span>
+        <div class="share-buttons">
+          <button class="share-button" type="button">📤 Share</button>
+          <a class="share-link" href="${shareLinks.x}" target="_blank" rel="noopener noreferrer">X</a>
+          <a class="share-link" href="${shareLinks.facebook}" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a class="share-link" href="${shareLinks.email}">Email</a>
+        </div>
+      </div>
     `;
 
     // Add click handlers for delete buttons
@@ -586,6 +644,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
     }
+
+    const shareButton = activityCard.querySelector(".share-button");
+    shareButton.addEventListener("click", () => {
+      shareActivity(name, details);
+    });
 
     activitiesList.appendChild(activityCard);
   }
