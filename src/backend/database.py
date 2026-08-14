@@ -35,6 +35,7 @@ initial_activities = {
     "Chess Club": {
         "description": "Learn strategies and compete in chess tournaments",
         "schedule": "Mondays and Fridays, 3:15 PM - 4:45 PM",
+        "difficulty": "Intermediate",
         "schedule_details": {
             "days": ["Monday", "Friday"],
             "start_time": "15:15",
@@ -46,6 +47,7 @@ initial_activities = {
     "Programming Class": {
         "description": "Learn programming fundamentals and build software projects",
         "schedule": "Tuesdays and Thursdays, 7:00 AM - 8:00 AM",
+        "difficulty": "Beginner",
         "schedule_details": {
             "days": ["Tuesday", "Thursday"],
             "start_time": "07:00",
@@ -90,6 +92,7 @@ initial_activities = {
     "Art Club": {
         "description": "Explore various art techniques and create masterpieces",
         "schedule": "Thursdays, 3:15 PM - 5:00 PM",
+        "difficulty": "Beginner",
         "schedule_details": {
             "days": ["Thursday"],
             "start_time": "15:15",
@@ -134,6 +137,7 @@ initial_activities = {
     "Debate Team": {
         "description": "Develop public speaking and argumentation skills",
         "schedule": "Fridays, 3:30 PM - 5:30 PM",
+        "difficulty": "Advanced",
         "schedule_details": {
             "days": ["Friday"],
             "start_time": "15:30",
@@ -145,6 +149,7 @@ initial_activities = {
     "Weekend Robotics Workshop": {
         "description": "Build and program robots in our state-of-the-art workshop",
         "schedule": "Saturdays, 10:00 AM - 2:00 PM",
+        "difficulty": "Intermediate",
         "schedule_details": {
             "days": ["Saturday"],
             "start_time": "10:00",
@@ -167,6 +172,7 @@ initial_activities = {
     "Sunday Chess Tournament": {
         "description": "Weekly tournament for serious chess players with rankings",
         "schedule": "Sundays, 2:00 PM - 5:00 PM",
+        "difficulty": "Advanced",
         "schedule_details": {
             "days": ["Sunday"],
             "start_time": "14:00",
