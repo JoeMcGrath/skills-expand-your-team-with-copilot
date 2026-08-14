@@ -32,6 +32,19 @@
   --info-light: #d1ecf1;
 }
 
+html.dark-mode {
+  --primary: #5c6bc0;
+  --primary-light: #7986cb;
+  --primary-dark: #3f51b5;
+  --background: #121212;
+  --surface: #1f1f1f;
+  --text-primary: #f1f1f1;
+  --text-secondary: #cfcfcf;
+  --border: #3a3a3a;
+  --border-light: #2c2c2c;
+  --border-focus: #505050;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -617,6 +630,9 @@ footer {
   position: absolute;
   top: 10px;
   right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 #user-status {
@@ -663,4 +679,8 @@ footer {
 
 #logout-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+.theme-icon {
+  font-size: 1rem;
 }
