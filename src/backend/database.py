@@ -122,11 +122,11 @@ initial_activities = {
     },
     "Manga Maniacs": {
         "description": "Dive into action-packed Japanese manga stories, unforgettable heroes, and bold adventures with fellow fans.",
-        "schedule": "Tuesdays at 4:30 PM",
+        "schedule": "Tuesdays at 5:00 PM",
         "schedule_details": {
             "days": ["Tuesday"],
-            "start_time": "16:30",
-            "end_time": "16:30"
+            "start_time": "17:00",
+            "end_time": "17:00"
         },
         "max_participants": 25,
         "participants": []
