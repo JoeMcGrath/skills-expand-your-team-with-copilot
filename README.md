@@ -13,3 +13,7 @@ Remember, it's self-paced so feel free to take a break! ☕️
 ## Using Copilot (briefly)
 
 Use Copilot Chat to summarize an issue, propose a small implementation plan, and generate a first draft of changes; then review, test, and refine before committing.
+
+## Latest app update
+
+- Added a light/dark mode toggle button in the top-right of the activities page header.
