@@ -10,6 +10,10 @@ Remember, it's self-paced so feel free to take a break! ☕️
 
 [![](https://img.shields.io/badge/Go%20to%20Exercise-%E2%86%92-1f883d?style=for-the-badge&logo=github&labelColor=197935)](https://github.com/JoeMcGrath/skills-expand-your-team-with-copilot/issues/1)
 
-## Using Copilot (briefly)
+## Using Copilot effectively
 
-Use Copilot Chat to summarize an issue, propose a small implementation plan, and generate a first draft of changes; then review, test, and refine before committing.
+Use Copilot Chat to:
+- summarize the issue and clarify requirements
+- propose a focused implementation plan
+- draft the first code changes
+- iterate based on review and test results before committing
